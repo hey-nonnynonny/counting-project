@@ -1,0 +1,16 @@
+from random import shuffle, randint
+
+trials = 100
+failures = 0
+cards = ["Q","Q","Q","Q","K","K","K","K","J","J","J","J"]
+
+for i in range(trials):
+    shuffle(cards)
+    for j in range(9):
+        if cards[j]+cards[j+1]+cards[j+2]+cards[j+3] == "QQQQ":
+            failures +=1
+        if cards[j]+cards[j+1]+cards[j+2]+cards[j+3] == "KKKK":
+            failures +=1
+        if cards[j]+cards[j+1]+cards[j+2]+cards[j+3] == "JJJJ":
+            failures +=1
+print ((trials-failures)/trials*100,"%")
